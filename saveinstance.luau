@@ -1699,7 +1699,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 	local currentstr, currentsize, totalsize, chunks = "", 0, 0, table.create(1)
 	local savebuffer, savebuffer_size = {}, 1
 	local header =
-		'<!-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw --><roblox version="4">'
+		'<!-- Saved by DexInstance by 2aney_x on dc :D --><roblox version="4">'
 
 	local StatusText
 
@@ -2044,7 +2044,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		end
 
 		if GLOBAL_ENV[placename] then
-			-- warn("UniversalSynSaveInstance is already saving to this file")
+			-- warn("DexInstance is already saving to this file")
 			return
 		end
 
@@ -2855,7 +2855,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 											end
 										end
 
-										value = "-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw\n\n"
+										value = "-- Saved by DexInstance by 2aney_x on dc :D\n\n"
 											.. (hasLinkedSource and "-- Original Source: https://assetdelivery.roblox.com/v1/asset/?" .. (LinkedSource_type or "id") .. "=" .. (LinkedSource or LinkedSource_Url) .. "\n\n" or "")
 											.. value
 									end
@@ -3011,62 +3011,58 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		end
 
 		if OPTIONS.ReadMe then
-			save_extra(
-				"README",
-				nil,
-				"Script",
-				"--[[\n"
-					.. (#RecoveredScripts ~= 0 and "\t\tIMPORTANT: Original Source of these Scripts was Recovered: " .. service.HttpService:JSONEncode(
-						RecoveredScripts
-					) .. "\n" or "")
-					.. [[
-		Thank you for using UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw.
-
-		If you didn't save in Binary (rbxl) - it's recommended to save the game right away to take advantage of the binary format & to preserve values of certain properties if you used IgnoreDefaultProperties setting (as they might change in the future).
-		You can do that by going to FILE -> Save to File As -> Make sure File Name ends with .rbxl -> Save
-
-		ServerStorage, ServerScriptService and Server Scripts are IMPOSSIBLE to save because of FilteringEnabled.
-
-		If your player cannot spawn into the game, please move the scripts in StarterPlayer somewhere else. Then run `game:GetService("Players").CharacterAutoLoads = true`.
-		And use "Play Here" to start game instead of "Play" to spawn your Character where your Camera currently is.
-
-		If the chat system does not work, please use the explorer and delete everything inside the TextChatService/Chat service(s). 
-		Or run `game:GetService("Chat"):ClearAllChildren() game:GetService("TextChatService"):ClearAllChildren()`
-				
-		If Union and MeshPart collisions don't work, run the script below in the Studio Command Bar:
-				
-				
-		local C = game:GetService("CoreGui")
-		local D = Enum.CollisionFidelity.Default
-				
-		for _, v in game:GetDescendants() do
-			if v:IsA("TriangleMeshPart") and not v:IsDescendantOf(C) then
-				v.CollisionFidelity = D
-			end
-		end
-		print("Done")
-				
-		If you can't move the Camera, run this script in the Studio Command Bar:
-			
-		workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
-		
-		Or Destroy the Camera.
-
-		This file was generated with the following settings:
-		]]
-					.. service.HttpService:JSONEncode(OPTIONS)
-					.. "\n\n\t\tElapsed time: "
-					.. os.clock() - elapse_t
-					.. " PlaceId: "
-					.. game.PlaceId
-					.. " PlaceVersion: "
-					.. game.PlaceVersion
-					.. " Client Version: "
-					.. version()
-					.. " Executor: "
-					.. (identify_executor and table.concat({ identify_executor() }, " ") or "Unknown")
-					.. "\n]]"
-			)
+		    local elapsedTime = os.clock() - elapse_t
+		    local recoveredScriptsInfo = #RecoveredScripts ~= 0 
+		        and "\t\tIMPORTANT: Original Source of these Scripts was Recovered: " .. 
+		            service.HttpService:JSONEncode(RecoveredScripts) .. "\n" 
+		        or ""
+		    
+		    local readmeContent = "--[[\n" .. recoveredScriptsInfo .. [[
+		        Thank you for using DexInstance by 2aney_x on dc :D (Join to Copy Games).
+		        
+		        SAVING RECOMMENDATIONS:
+		        - If you didn't save in Binary (rbxl), save the game immediately to preserve property values
+		        - Go to FILE -> Save to File As -> Ensure filename ends with .rbxl -> Save
+		        
+		        KNOWN LIMITATIONS:
+		        - ServerStorage, ServerScriptService and Server Scripts CANNOT be saved due to FilteringEnabled
+		        
+		        TROUBLESHOOTING:
+		        1. If players can't spawn:
+		           - Move scripts from StarterPlayer to another location
+		           - Run: game:GetService("Players").CharacterAutoLoads = true
+		           - Use "Play Here" instead of "Play" to spawn at camera position
+		        
+		        2. If chat system doesn't work:
+		           - Delete everything in TextChatService/Chat services
+		           - Or run: game:GetService("Chat"):ClearAllChildren() game:GetService("TextChatService"):ClearAllChildren()
+		        
+		        3. If Union/MeshPart collisions don't work, run in Command Bar:
+		           local C = game:GetService("CoreGui")
+		           local D = Enum.CollisionFidelity.Default
+		           
+		           for _, v in game:GetDescendants() do
+		               if v:IsA("TriangleMeshPart") and not v:IsDescendantOf(C) then
+		                   v.CollisionFidelity = D
+		               end
+		           end
+		           print("Collision fix applied")
+		        
+		        4. If camera is locked, run in Command Bar:
+		           workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
+		           -- Or destroy the camera
+		        
+		        EXPORT SETTINGS:
+		        ]] .. service.HttpService:JSONEncode(OPTIONS) .. 
+		        "\n\n\t\tExport Information:" ..
+		        "\n\t\t- Elapsed time: " .. elapsedTime .. 
+		        "\n\t\t- PlaceId: " .. game.PlaceId .. 
+		        "\n\t\t- PlaceVersion: " .. game.PlaceVersion .. 
+		        "\n\t\t- Client Version: " .. version() .. 
+		        "\n\t\t- Executor: " .. (identify_executor and table.concat({identify_executor()}, " ") or "Unknown") .. 
+		        "\n]]"
+		    
+		    save_extra("README", nil, "Script", readmeContent)
 		end
 		do
 			local tmp = { "<SharedStrings>" }
@@ -3083,7 +3079,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		end
 
 		savebuffer[savebuffer_size] =
-			"</roblox><!-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw -->"
+			"</roblox><!-- DexInstance by 2aney_x on dc :D (Join to Copy Games) -->"
 		savebuffer_size += 1
 		save_cache(true)
 		do
