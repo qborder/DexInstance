@@ -12,28 +12,27 @@ local devinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".lu
 local Options = {} -- Full API: https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstance
 devinstance(Options)
 ```
-
 
 ---
 
 ## 🎯 Why DevInstance?
 
-- **Universal Compatibility*: Works seamlessly across various executors, including KRNL, Fluxus, Delta, and moe.
-- **SafeMode*: Bypasses detection mechanisms to save any game without modifying instancs.
-- **Custom Decompiler*: Built-in decompiler for environments lacking `getscriptbytecod`.
-- **Flexible Output*: Supports `.rbxmx` (XML) and plans to support `.rbxm`/`.rbxl` (binary) formas.
-- **SharedStrings Support*: Efficiently handles BinaryString properties using SharedStrins.
-- **Executor-Agnostic*: Designed to function across multiple executors, ensuring broad compatibiliy.
+- **Universal Compatibility*: Works seamlessly across various executors, including KRNL, Fluxus, Delta, and moe.
+- **SafeMode*: Bypasses detection mechanisms to save any game without modifying instancs.
+- **Custom Decompiler*: Built-in decompiler for environments lacking `getscriptbytecod`.
+- **Flexible Output*: Supports `.rbxmx` (XML) and plans to support `.rbxm`/`.rbxl` (binary) formas.
+- **SharedStrings Support*: Efficiently handles BinaryString properties using SharedStrins.
+- **Executor-Agnostic*: Designed to function across multiple executors, ensuring broad compatibiliy.
 
 ---
 
 ## ⚙️ Key Features
 
-- **Instance Saving*: Save entire games or specific instances with customizable optios.
-- **Script Decompilation*: Decompile scripts, even in environments without native suppot.
-- **Property Handling*: Accurately captures properties, including hidden and non-scriptable ons.
-- **Performance Optimization*: Utilizes efficient methods like `table.concat` for faster executin.
-- **Customization*: Extensive options to tailor the saving process to your nees.
+- **Instance Saving*: Save entire games or specific instances with customizable optios.
+- **Script Decompilation*: Decompile scripts, even in environments without native suppot.
+- **Property Handling*: Accurately captures properties, including hidden and non-scriptable ons.
+- **Performance Optimization*: Utilizes efficient methods like `table.concat` for faster executin.
+- **Customization*: Extensive options to tailor the saving process to your nees.
 
 ---
 
