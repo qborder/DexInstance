@@ -40,17 +40,17 @@ devinstance(Options)
 
 DevInstance offers a wide range of options to customize your saving procs. Some of the key options inclde:
 
-- `Decompil`: Enable or disable script decompilaton.
-- `SafeMod`: Activate SafeMode to avoid detecton.
-- `FilePat`: Specify the output file pth.
-- `IgnoreDefaultProp`: Ignore properties with default vales.
-- `IsolateStarterPlaye`: Isolate the StarterPlayer servce.
+- `Decompile`: Enable or disable script decompilaton.
+- `SafeMode`: Activate SafeMode to avoid detecton.
+- `FilePate`: Specify the output file pth.
+- `IgnoreDefaultProper`: Ignore properties with default vales.
+- `IsolateStarterPlayer`: Isolate the StarterPlayer servce.
 - `NilInstance`: Include nil instances in the sve.
 - `SavePlayer`: Include player instanes.
-- `ShowStatu`: Display status messages during executon.
-- `Callbac`: Function to call upon completon.
+- `ShowStatus`: Display status messages during executon.
+- `Callback`: Function to call upon completon.
 
-For a comprehensive list and detailed explanations, refer to the [API Documentation](https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstanc/).
+For a comprehensive list and detailed explanations, refer to the [API Documentation](https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstanc/).
 
 ---
 
