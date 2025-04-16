@@ -1,6 +1,4 @@
-# 🌌 DevInstance (formerly USSI) — The Ultimate Roblox SaveInstance Reviva
-DevInstance (previously known as Universal Syn SaveInstance or USSI) is a powerful, cross-executor script designed to resurrect and enhance the original `saveinstance` functionality from Synapse XIt enables you to export entire Roblox games or specific instances with unmatched precision, flexibility, and stealth
-
+# 🌌 DevInstance (formerly USSI) — The Ultimate Roblox SaveInstance Revival
 ---
 
 ## 🚀 Quick Start
